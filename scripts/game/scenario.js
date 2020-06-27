@@ -17,7 +17,7 @@ class Scenario {
   }
   
   // Mostra o cenário na tela. 
-  exibe () {
+  show () {
     // Carrega uma imagem. Parâmetros: / Loads a image. Parameters:
     // 1. Imagem / Image
     // 2. Posição X no Canvas / Position X on Canvas
