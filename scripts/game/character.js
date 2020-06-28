@@ -33,7 +33,7 @@ class Character extends Animation {
     this.fallDistance = 0;
     
     // Objeto para identificar as ações que o usuário poderá realizar com a personagem.
-    // Funciona normalmente no JavaScript, mas não funciona no P5.JS
+    // Não funciona desta forma.
     // this.keys = {
     //   ArrowUp: this.jump,
     // }
@@ -41,6 +41,10 @@ class Character extends Animation {
 
   // Faz a personagem pular.
   jump () {
+    // console.log( 'Pulou!' );
+    // console.log( 'Personagem2:' );
+    // console.log( character );
+    // console.log( this );
     if ( this.jumps < 2 ) {
       // this.y -= 50;
       this.jumpSpeed = this.jumpDistance;

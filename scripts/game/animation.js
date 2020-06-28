@@ -1,19 +1,19 @@
 /**
  * Classe para animar os seres. / Class to animate the beings.
- * @param {*} img é a imagem do ser. / It is the being image.
- * @param {*} x é a posição X do ser na tela. / It is the X position of the being on Canvas.
- * @param {*} yVariation é a variação da posição Y do ser, que pode ser o chão ou o voo. / It is the variation of the Y position of the being, which can be the ground or the flight.
- * @param {*} y é a posição Y do ser na tela. / It is the Y position of the being on Canvas.
- * @param {*} width é a largura do ser na tela. / It is the width of the being on Canvas.
- * @param {*} height é a altura do ser na tela. / It is the height of the being on Canvas.
- * @param {*} col é o número de colunas de sprites na imagem. / It is the number of sprite columns in the image.
- * @param {*} lin é o número de linhas de sprites na imagem. / It is the number of sprite lines in the image.
- * @param {*} spriteWidth é a largura de cada sprite na imagem do ser. / It is the width of each sprite in the image of the being.
- * @param {*} spriteHeight é a altura de cada sprite na imagem do ser. / It is the height of each sprite in the image of the being.
- * @param {*} difLines é a lista com listas das linhas que estão fora do padrão de quantidade. Dentro do array principal, coloca-se um array o número da linha e a quant. de sprites na linha.  Por exemplo, uma imagem com 3x3 sprites, mas a última linha tem apenas um sprite, coloca-se [[3,1]]. Para uma imagem com 3x3 mas a segunda linha tem 2 sprites e a terceira também 2, coloca-se [[2,2], [3,2]]. Padrão é vazio.
+ * @param {image} img é a imagem do ser. / It is the being image.
+ * @param {number} x é a posição X do ser na tela. / It is the X position of the being on Canvas.
+ * @param {number} yVariation é a variação da posição Y do ser, que pode ser o chão ou o voo. / It is the variation of the Y position of the being, which can be the ground or the flight.
+ * @param {number} y é a posição Y do ser na tela. / It is the Y position of the being on Canvas.
+ * @param {number} width é a largura do ser na tela. / It is the width of the being on Canvas.
+ * @param {number} height é a altura do ser na tela. / It is the height of the being on Canvas.
+ * @param {number} col é o número de colunas de sprites na imagem. / It is the number of sprite columns in the image.
+ * @param {number} lin é o número de linhas de sprites na imagem. / It is the number of sprite lines in the image.
+ * @param {number} spriteWidth é a largura de cada sprite na imagem do ser. / It is the width of each sprite in the image of the being.
+ * @param {number} spriteHeight é a altura de cada sprite na imagem do ser. / It is the height of each sprite in the image of the being.
+ * @param {array} difLines é a lista com listas das linhas que estão fora do padrão de quantidade. Dentro do array principal, coloca-se um array o número da linha e a quant. de sprites na linha.  Por exemplo, uma imagem com 3x3 sprites, mas a última linha tem apenas um sprite, coloca-se [[3,1]]. Para uma imagem com 3x3 mas a segunda linha tem 2 sprites e a terceira também 2, coloca-se [[2,2], [3,2]]. Padrão é vazio.
  * // It is the list with lists of lines that are out of the quantity standard. Default is empty.
  * @_
- * @property {*} currentFrame é o índice para escolher um sprite do spritesArray. / It is the index to choose a sprite from spritesArray.
+ * @property {number} currentFrame é o índice para escolher um sprite do spritesArray. / It is the index to choose a sprite from spritesArray.
  */
 class Animation {
     constructor ( img, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, difLines=[] ) {

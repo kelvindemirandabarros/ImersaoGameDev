@@ -1,15 +1,12 @@
 /**
   * Classe para criar um cenário móvel. / Class to create a scenario.
-  * @param {*} img é a imagem do cenário. / It is the scenario image.
-  * @param {*} speed é a velocidade com que o cenário se mexe. / It is the speed in which the scenario moves.
-  * @param {*} posX1 é a posição do eixo X da imagem 1 no Canvas.
-  * @param {*} posX2 é a posição do eixo X da imagem 2 no Canvas. 
-  * @_
-  * @property {} x1 ...
-  * @property {} x2 ...
+  * @param {image} img é a imagem do cenário. / It is the scenario image.
+  * @param {number} speed é a velocidade com que o cenário se mexe. / It is the speed in which the scenario moves.
+  * @param {number} posX1 é a posição do eixo X da imagem 1 no Canvas.
+  * @param {number} posX2 é a posição do eixo X da imagem 2 no Canvas.
   */
 class Scenario {
-  constructor ( img, speed, /*posX1=0, posX2=windowWidth*/ ) {
+  constructor ( img, speed, /*posX1, posX2*/ ) {
     this.img = img;
     this.speed = speed;
     this.x1 = 0; //posX1;

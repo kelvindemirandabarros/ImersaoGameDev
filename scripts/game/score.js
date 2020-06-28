@@ -1,5 +1,6 @@
 /**
  * Classe para contabilizar pontuações no jogo.
+ * @property {number} points é a pontuação do jogo.
  */
 class Score {
     constructor () {
