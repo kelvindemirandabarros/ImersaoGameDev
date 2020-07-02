@@ -1,0 +1,24 @@
+{
+    "config": {
+        "maxLives": 3,
+        "startLives": 3
+    },
+    "mapa": [
+        {
+            "enemy": 0,
+            "speed": 25
+        },
+        {
+            "enemy": 1,
+            "speed": 25
+        },
+        {
+            "enemy": 0,
+            "speed": 25
+        },
+        {
+            "enemy": 2,
+            "speed": 25
+        }
+    ]
+}

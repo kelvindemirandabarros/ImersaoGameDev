@@ -1,7 +1,5 @@
 function preload() {
-    // 'loadImage' carrega uma imagem.
-    // 'loadFont' carrega uma fonte de texto.
-    // 'loadSound' carrega um som.
+    shell = loadJSON( 'shell/shell.json' );
 
     initialScenarioImg = loadImage( 'imgs/scenario/initialScenarioImg.png' );
     initialScenarioFont = loadFont( 'fonts/initialScenarioFont.otf' );
@@ -10,6 +8,7 @@ function preload() {
 
     characterImg = loadImage( 'imgs/character/running.png' );
     jumpSound = loadSound( 'sounds/jump.mp3' );
+    charLifeImg = loadImage( 'imgs/assets/life.png' );
 
     dropetImg = loadImage( 'imgs/enemies/dropet.png' );
     flyingDropetImg = loadImage( 'imgs/enemies/flying-dropet.png' );

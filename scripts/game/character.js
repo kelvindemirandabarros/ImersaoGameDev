@@ -34,9 +34,11 @@ class Character extends Animation {
     
     // Objeto para identificar as ações que o usuário poderá realizar com a personagem.
     // Não funciona desta forma.
-    // this.keys = {
-    //   ArrowUp: this.jump,
-    // }
+    this.keys = {
+      ArrowUp: this.jump.bind(this)
+    }
+
+    this.invulnerable = false;
   }
 
   // Faz a personagem pular.
@@ -78,7 +80,16 @@ class Character extends Animation {
     // }
   }
 
+  makeInvulnerable () {
+    this.invulnerable = true;
+    setTimeout( () => {
+      this.invulnerable = false;
+    }, 3000 );
+  }
+
   colliding ( enemy ) {
+    if ( this.invulnerable ) return false;
+    
     // Diminui a caixa de colisão para ser visualmente correto com as imagens.
     const precision = .7;
     // Verifica colisão da personagem com o dropet.

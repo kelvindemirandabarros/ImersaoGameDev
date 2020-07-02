@@ -1,5 +1,7 @@
+let shell;
+
 let scenarios;
-let currentScenario = 'initialScenario';
+let currentScenario = 'game'; // REALIZANDO TESTES! Retornar para 'initialScenario'.
 
 // Cena inicial (Menu)
 let initialScenario;
@@ -17,10 +19,10 @@ let floorSize;
 
 // Instância da classe Character, e suas dependências.
 // Character class instance, and its dependencies. 
-let character;
 let characterImg;
 let charHeight;
 let charWidth;
+let character;
 
 // Conterá o valor do menor entre a largura e a altura do Canvas.
 // It will contain the value of the smallest between the width and the height of the Canvas.
@@ -34,6 +36,9 @@ let charSize;
 // Conterá o multiplicador proporcional de largura e altura.
 // It will contain the proportional multiplier of width and height.
 let multPixels;
+
+let charLifeImg;
+let charLife;
 
 
 const enemies = [];

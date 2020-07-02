@@ -3,7 +3,9 @@
  */
 class Game {
     constructor () {
-        this.currentEnemy = 0;
+        // this.currentEnemy = 0;
+        this.index = 0;
+        this.map = shell.map;
     }
 
     setup () {
@@ -37,13 +39,14 @@ class Game {
         charHeight = 270 * multPixels;
         
         character = new Character( characterImg, jumpSound, windowWidth / 5, floorSize, /*windowHeight - charHeight, charWidth, charHeight,*/ height - 135, 110, 135, 4, 4, 220, 270 );
+        charLife = new Life ( charLifeImg, shell.config.maxLives, shell.config.startLives, 25, 25 );
 
         // Inimigos: / Enemies:
-        dropet = new Enemy( dropetImg, width - 52.5, floorSize, height - 50, 52.5, 50, 4, 7, 105, 100, 15, 10 );
+        dropet = new Enemy( dropetImg, width - 52.5, floorSize, height - 50, 52.5, 50, 4, 7, 105, 100, 15 );
 
-        flyingDropet = new Enemy( flyingDropetImg, width, height - (height * 0.6), height - 50, 100, 75, 3, 6, 200, 150, 15, 10, [[6,1]] );
+        flyingDropet = new Enemy( flyingDropetImg, width, height - (height * 0.6), height - 50, 100, 75, 3, 6, 200, 150, 15, [[6,1]] );
 
-        troll = new Enemy( trollImg, width, 0, height - 200, 200, 200, 5, 6, 400, 400, 15, 10, [[6,3]] );
+        troll = new Enemy( trollImg, width, 0, height - 200, 200, 200, 5, 6, 400, 400, 15, [[6,3]] );
 
         enemies.push( dropet );
         enemies.push( flyingDropet );
@@ -51,18 +54,9 @@ class Game {
     }
 
     keyPressed ( key ) {
-        // Não funciona desta forma!
-        // console.log( 'Personagem:' );
-        // console.log( character );
-        // console.log( `Tecla ${ key } pressionada!` );
-        // // let funct = character.keys[ key ];
-        // if ( /*character.*/keys[ key ] ) {
-        //     /*character.*/keys[ key ]();
-        // //   console.log( 'Funct:' );
-        // //   console.log( funct );
-        // //   funct();
-        // }
-        if ( key === 'ArrowUp' ) character.jump();
+        if ( character.keys[ key ] ) {
+            character.keys[ key ]();
+        }
     }
 
     draw () {
@@ -93,6 +87,8 @@ class Game {
         // Aplica gravidade na personagem.
         character.applyGravity();
 
+        charLife.draw();
+
         // Exibe os inimigos e os move. / Shows the enemies and moves them.
         // dropet.show();
         // dropet.moves();
@@ -116,27 +112,37 @@ class Game {
             //   image( gameOverImg, (width / 2) - 200, height / 3 );
             // }
         // });
+        
+        const currentLine = this.map[ this.index ];
 
-        const enemy = enemies[ this.currentEnemy ];
+        // const enemy = enemies[ this.currentEnemy ];
+        const enemy = enemies[ currentLine.enemy ];
+        enemy.speed = currentLine.speed; // parseInt( random( 15, 30 ) );
+
         // Confere se o inimigo atual já saiu completamente da tela.
-        const visibleEnemy = enemy.x < - enemy.width;
+        const crossedScreen = enemy.x < - enemy.width;
 
         enemy.show();
         enemy.moves();
 
-        // Se o inimigo atual já saiu da tela, então troca o inimigo.
-        if ( visibleEnemy ) {
+        // Se o inimigo atual já atravessou a tela:
+        if ( crossedScreen ) {
             enemy.goesToStartPoint();
-            this.currentEnemy = ( this.currentEnemy >= 2 ) ? 0 : this.currentEnemy + 1;
+
+            // this.currentEnemy = ( this.currentEnemy >= 2 ) ? 0 : this.currentEnemy + 1;
+            this.index = ( this.index >= this.map.length - 1 ) ? 0 : this.index + 1;
+
             // if ( this.currentEnemy > 2 ) this.currentEnemy = 0;
-            enemy.speed = parseInt( random( 15, 30 ) );
         }
 
         if ( character.colliding( enemy ) ) {
-            // console.log( 'Colidiu!' );
-            // Interrompe o loop do draw(). / Stops the draw() loop.
-            // noLoop();
-            image( gameOverImg, (width / 2) - 200, height / 3 );
+            charLife.losesLife();
+            character.makeInvulnerable();
+            if ( charLife.nLives <= 0 ) {
+                image( gameOverImg, (width / 2) - 200, height / 3 );
+                // Interrompe o loop do draw(). / Stops the draw() loop.
+                // noLoop();
+            }
         }
 
         score.addPoints();

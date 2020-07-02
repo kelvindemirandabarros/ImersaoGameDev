@@ -14,25 +14,21 @@
  * @param {number} spriteWidth é a largura de cada sprite na imagem do inimigo. / It is the width of each sprite in the image of the enemy.
  * @param {number} spriteHeight é a altura de cada sprite na imagem do inimigo. / It is the height of each sprite in the image of the enemy.
  * @param {number} speed é a velocidade do inimigo na tela. / It is the enemy speed on screen.
- * @param {number} delay é o número de frames de atraso que o inimigo terá para aparecer novamente. / It is the number of frames of delay that the enemy will have to appear again.
  * @param {array} difLines é a lista com listas das linhas que estão fora do padrão de quantidade. Padrão é vazio. / It is the list with lists of lines that are out of the quantity standard. Default is empty.
  * @_
  * @property {number} currentFrame é o índice para escolher um sprite do spritesArray. / It is the index to choose a sprite from spritesArray.
  */
 class Enemy extends Animation {
-    constructor ( img, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, speed, delay, difLines=[] ) {
+    constructor ( img, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, speed, difLines=[] ) {
         super( img, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, difLines );
 
         this.speed = speed;
-        this.delay = delay;
-        this.x = x + this.delay;
+        this.x = x;
     }
 
+    // Faz o inimigo se mover na tela.
     moves () {
         this.x -= this.speed;
-
-        // Seria para checar se o inimigo já saiu completamente da tela.
-        // if ( this.x < - this.width - this.delay ) this.x = width;
     }
 
     // Faz o inimigo retornar para o ponto inicial após passar completamente da tela.
