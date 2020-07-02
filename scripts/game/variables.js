@@ -1,5 +1,8 @@
 let shell;
 
+let canvasWidth = 800;
+let canvasHeight = 800;
+
 let scenarios;
 let currentScenario = 'initialScenario';
 

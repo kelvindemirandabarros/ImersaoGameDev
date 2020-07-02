@@ -1,6 +1,6 @@
 # ImersaoGameDev
  Alura - ImersãoGameDev
+ https://www.alura.com.br/
 
-
-Link do projeto no editor do P5.js: / Project link on P5.js editor:
-https://editor.p5js.org/kdmb/sketches/vU2TNSuRy
+O jogo pode ser testado no GitHub Pages: / The game can be tested on GitHub Pages:
+https://kelvindemirandabarros.github.io/ImersaoGameDev/

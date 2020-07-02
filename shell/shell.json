@@ -3,7 +3,7 @@
         "maxLives": 3,
         "startLives": 3
     },
-    "mapa": [
+    "map": [
         {
             "enemy": 0,
             "speed": 25

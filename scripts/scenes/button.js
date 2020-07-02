@@ -29,6 +29,6 @@ class Button {
         // Exibe o botão.
         this.button.position( this.x, this.y );
         // Sem parâmetros centraliza o elemento no centro da tela.
-        this.button.center( 'horizontal' );
+        // this.button.center( 'horizontal' );
     }
 }

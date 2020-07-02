@@ -9,7 +9,6 @@
  */
 class InitialScenario {
     constructor ( img, x, y, width, height, button ) {
-        //
         this.img = img;
         this.x = x;
         this.y = y;
