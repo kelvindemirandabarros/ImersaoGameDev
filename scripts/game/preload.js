@@ -14,7 +14,7 @@ function preload() {
     flyingDropetImg = loadImage( 'imgs/enemies/flying-dropet.png' );
     trollImg = loadImage( 'imgs/enemies/troll.png' );
 
-    // music01 = loadSound( 'sounds/music01.mp3' );
+    music01 = loadSound( 'sounds/music01.mp3' );
     
     gameOverImg = loadImage( 'imgs/assets/game-over.png' );
 }

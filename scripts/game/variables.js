@@ -1,7 +1,7 @@
 let shell;
 
 let scenarios;
-let currentScenario = 'initialScenario'; // REALIZANDO TESTES! Retornar para 'initialScenario'.
+let currentScenario = 'initialScenario';
 
 // Cena inicial (Menu)
 let initialScenario;
@@ -42,7 +42,7 @@ let charLife;
 
 
 const enemies = [];
-// Inimigos e suas imagens: / Enemies and their images:
+
 let dropet;
 let dropetImg;
 
@@ -54,10 +54,8 @@ let trollImg;
 
 let music01;
 
-// Pontuação.
 let score;
 
-// Image do fim de jogo.
 let gameOverImg;
 
 let game;
