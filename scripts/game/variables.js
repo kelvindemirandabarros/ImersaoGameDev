@@ -1,7 +1,7 @@
 let shell;
 
 let scenarios;
-let currentScenario = 'game'; // REALIZANDO TESTES! Retornar para 'initialScenario'.
+let currentScenario = 'initialScenario'; // REALIZANDO TESTES! Retornar para 'initialScenario'.
 
 // Cena inicial (Menu)
 let initialScenario;
