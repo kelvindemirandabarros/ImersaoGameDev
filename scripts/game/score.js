@@ -18,7 +18,7 @@ class Score {
         // 1. O texto que será mostrado.
         // 2. A posição X na tela.
         // 3. A posição Y na tela.
-        text( parseInt( this.points ), width - 30, 50 );
+        text( parseInt( this.points ), canvasWidth - 30, 50 );
     }
 
     addPoints () {

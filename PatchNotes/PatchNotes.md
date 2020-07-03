@@ -1,3 +1,14 @@
+v.0.6
+
+Desenvolvimento contínuo
+- Comentários desnecessários apagados.
+- Adição de reiniciar jogo após fim de jogo.
+- Refatoração de código.
+
+Continuous development
+- Deleted unnecessary comments.
+- Added restart game at game over.
+- Code refactored.
 
 ------------------------------------------------------------------------------
 
@@ -22,11 +33,11 @@ Continuous development
 v.0.5.2
 
 Desenvolvimento contínuo
-- Correção de código de desenvolvimento para código de produção (2).
+- Correção de código de desenvolvimento para código de produção.
 - Comentários desnecessários apagados.
 
 Continuous development
-- Correction of development code for production code (2).
+- Correction of development code for production code.
 - Deleted unnecessary comments.
 
 ------------------------------------------------------------------------------

@@ -1,16 +1,10 @@
 function setup() {
-  createCanvas( canvasWidth, canvasHeight ); // windowWidth, windowHeight );
+  createCanvas( canvasWidth, canvasHeight ); // canvasWidth, windowHeight );
   frameRate( 30 );
   music01.loop();
 
-  initialScenarioButton = new Button(
-    'Iniciar',
-    ( canvasWidth / 2 ) - 80,
-    ( canvasHeight / 4 ) * 3 - 35,
-    'botao-tela-inicial'
-  );
-  initialScenario = new InitialScenario( initialScenarioImg, 0, 0, canvasWidth, canvasHeight, 
-      initialScenarioButton );
+  initialScenario = new InitialScenario( initialScenarioImg, 0, 0, canvasWidth, canvasHeight, initialScenarioFont );
+  initialScenario.createInitialScenarioButton();
   
   game = new Game();
   game.setup();

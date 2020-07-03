@@ -6,11 +6,11 @@
   * @param {number} posX2 é a posição do eixo X da imagem 2 no Canvas.
   */
 class Scenario {
-  constructor ( img, speed, /*posX1, posX2*/ ) {
+  constructor ( img, speed, posX1=0, posX2=canvasWidth ) {
     this.img = img;
     this.speed = speed;
-    this.x1 = 0; //posX1;
-    this.x2 = width; //posX2;
+    this.x1 = posX1;
+    this.x2 = posX2;
   }
   
   // Mostra o cenário na tela. 
@@ -21,8 +21,8 @@ class Scenario {
     // 3. Posição Y no Canvas / Position Y on Canvas
     // 4. Tamanho da largura da imagem / Image width size
     // 5. Tamanho da altura da imagem / Image width size
-    image( this.img, this.x1, 0, width, height );
-    image( this.img, this.x2, 0, width, height );
+    image( this.img, this.x1, 0, canvasWidth, canvasHeight );
+    image( this.img, this.x2, 0, canvasWidth, canvasHeight );
   }
   
   // Faz o cenário se movimentar. / Moves the scenario.
@@ -30,11 +30,11 @@ class Scenario {
     this.x1 -= this.speed;
     this.x2 -= this.speed;
     
-    if ( this.x1 < - width ) {
-      this.x1 = width;
+    if ( this.x1 < - canvasWidth ) {
+      this.x1 = canvasWidth;
     }
-    if ( this.x2 < - width ) {
-      this.x2 = width;
+    if ( this.x2 < - canvasWidth ) {
+      this.x2 = canvasWidth;
     }
   }
 }

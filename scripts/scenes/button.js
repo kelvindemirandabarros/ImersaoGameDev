@@ -16,13 +16,6 @@ class Button {
         this.button = createButton( this.text );
         // Adiciona uma class de estilos CSS ao botão.
         this.button.addClass( className );
-        // Define uma função ao apertar o botão.
-        this.button.mousePressed( () => this._changeScenario() );
-    }
-
-    _changeScenario () {
-        currentScenario = 'game';
-        this.button.remove();
     }
 
     draw () {
@@ -30,5 +23,41 @@ class Button {
         this.button.position( this.x, this.y );
         // Sem parâmetros centraliza o elemento no centro da tela.
         // this.button.center( 'horizontal' );
+    }
+}
+
+
+class InitialScenarioButton extends Button {
+    constructor( text, x, y, className ) {
+        super( text, x, y, className );
+        // Define uma função ao apertar o botão.
+        this.button.mousePressed( () => this._changeScenario() );
+    }
+    
+    _changeScenario () {
+        currentScenario = 'game';
+        this.button.remove();
+    }
+}
+
+
+class RestartGameButton extends Button {
+    constructor( text, x, y, className ) {
+        super( text, x, y, className );
+        this.button.mousePressed( () => this._restartGame() );
+    }
+
+    _restartGame () {
+        scenario.x1 = 0;
+        scenario.x2 = canvasWidth;
+        score.points = 0;
+        fill( 0,0,0 );
+        currentScenario = 'initialScenario';
+        initialScenario.createInitialScenarioButton();
+        game.enemy.goesToStartPoint();
+        game.index = 0;
+
+        this.button.remove();
+        loop();
     }
 }

@@ -41,7 +41,6 @@ class Character extends Animation {
     this.invulnerable = false;
   }
 
-  // Faz a personagem pular.
   jump () {
     // console.log( 'Pulou!' );
     // console.log( 'Personagem2:' );
@@ -57,7 +56,6 @@ class Character extends Animation {
     }
   }
 
-  // Aplica a gravidade.
   applyGravity () {
     this.y += this.jumpSpeed;
     this.jumpSpeed += this.gravity;
@@ -84,7 +82,7 @@ class Character extends Animation {
     this.invulnerable = true;
     setTimeout( () => {
       this.invulnerable = false;
-    }, 3000 );
+    }, 0 );
   }
 
   colliding ( enemy ) {

@@ -17,4 +17,5 @@ function preload() {
     music01 = loadSound( 'sounds/music01.mp3' );
     
     gameOverImg = loadImage( 'imgs/assets/game-over.png' );
+    gameOverMsgImg = loadImage( 'imgs/assets/game-over-message.png' );
 }

@@ -33,6 +33,6 @@ class Enemy extends Animation {
 
     // Faz o inimigo retornar para o ponto inicial após passar completamente da tela.
     goesToStartPoint () {
-        this.x = width;
+        this.x = canvasWidth;
     }
 }

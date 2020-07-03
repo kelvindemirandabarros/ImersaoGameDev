@@ -10,7 +10,6 @@ let currentScenario = 'initialScenario';
 let initialScenario;
 let initialScenarioImg;
 let initialScenarioFont;
-let initialScenarioButton;
 
 // Instância da classe Scenario, e suas dependências.
 // Scenario class instance, and its dependencies.
@@ -60,5 +59,8 @@ let music01;
 let score;
 
 let gameOverImg;
+
+let restartGame;
+let restartGameButton;
 
 let game;
