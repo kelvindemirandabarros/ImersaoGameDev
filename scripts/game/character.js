@@ -82,7 +82,7 @@ class Character extends Animation {
     this.invulnerable = true;
     setTimeout( () => {
       this.invulnerable = false;
-    }, 0 );
+    }, 1750 );
   }
 
   colliding ( enemy ) {

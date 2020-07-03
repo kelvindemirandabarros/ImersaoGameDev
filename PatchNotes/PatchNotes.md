@@ -1,3 +1,13 @@
+v.0.6.1
+
+Desenvolvimento contínuo
+- Correção de código de desenvolvimento para código de produção.
+
+Continuous development
+- Correction of development code for production code.
+
+------------------------------------------------------------------------------
+
 v.0.6
 
 Desenvolvimento contínuo
