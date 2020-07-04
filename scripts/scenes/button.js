@@ -12,16 +12,12 @@ class Button {
         this.text = text;
         this.x = x;
         this.y = y;
-        // Cria um botão HTML5.
         this.button = createButton( this.text );
-        // Adiciona uma class de estilos CSS ao botão.
         this.button.addClass( className );
     }
 
     draw () {
-        // Exibe o botão.
         this.button.position( this.x, this.y );
-        // Sem parâmetros centraliza o elemento no centro da tela.
         // this.button.center( 'horizontal' );
     }
 }
@@ -30,7 +26,6 @@ class Button {
 class InitialScenarioButton extends Button {
     constructor( text, x, y, className ) {
         super( text, x, y, className );
-        // Define uma função ao apertar o botão.
         this.button.mousePressed( () => this._changeScenario() );
     }
     
@@ -50,13 +45,23 @@ class RestartGameButton extends Button {
     _restartGame () {
         scenario.x1 = 0;
         scenario.x2 = canvasWidth;
-        score.points = 0;
+
         fill( 0,0,0 );
+        
         currentScenario = 'initialScenario';
         initialScenario.createInitialScenarioButton();
+        
         game.enemy.goesToStartPoint();
         game.index = 0;
+        enemiesLeft = 20;
 
+        charLife.nLives = shell.config.startLives;
+
+        character.x = character.originalX;
+        character.y = character.originalY;
+        character.width = character.originalWidth;
+        character.height= character.originalHeight;
+        
         this.button.remove();
         loop();
     }

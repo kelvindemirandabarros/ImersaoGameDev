@@ -1,39 +1,38 @@
+// Configurações do jogo: / Game configurations:
 let shell;
 
 let canvasWidth = 800;
 let canvasHeight = 800;
 
+let gameTextFont;
+
+// Cenários: / Scenarios:
 let scenarios;
-let currentScenario = 'initialScenario';
 
 // Cena inicial (Menu)
 let initialScenario;
 let initialScenarioImg;
-let initialScenarioFont;
 
-// Instância da classe Scenario, e suas dependências.
-// Scenario class instance, and its dependencies.
+// Cenário da floresta e suas dependências: / Forest scenario and its dependencies:
 let scenario;
 let scenarioImg;
 
-// Tamanho do chão no cenário.
-let floorSize;
+let floorHeight;
 
-// Instância da classe Character, e suas dependências.
-// Character class instance, and its dependencies. 
+let game;
+
+// Personagem e suas dependências.
+// Character and its dependencies. 
 let characterImg;
 let charHeight;
 let charWidth;
 let character;
 
-// Conterá o valor do menor entre a largura e a altura do Canvas.
-// It will contain the value of the smallest between the width and the height of the Canvas.
+// Para fazer o tamanho dos 
 let smallestAxis;
-// Porcentagem do tamanho da personagem em relação ao menor entre a largura e a altura do Canvas.
-// 
+
 let charPercentage;
-// Guardará o valor proporcional da personagem em relação ao menor entre a largura e a altura do Canvas.
-// 
+
 let charSize;
 // Conterá o multiplicador proporcional de largura e altura.
 // It will contain the proportional multiplier of width and height.
@@ -42,8 +41,9 @@ let multPixels;
 let charLifeImg;
 let charLife;
 
-
+// Inimigos: / Enemies:
 const enemies = [];
+let enemiesLeft;
 
 let dropet;
 let dropetImg;
@@ -54,13 +54,17 @@ let flyingDropetImg;
 let troll;
 let trollImg;
 
+// Sons: / Sounds:
+let jumpSound;
+let hurtSound01;
 let music01;
 
-let score;
-
+// Derrota: / Game Over:
 let gameOverImg;
-
-let restartGame;
 let restartGameButton;
 
-let game;
+// Vitória: / Win game:
+let finalScenario;
+
+//
+let currentScenario = 'initialScenario';// 'finalScenario'; // Trocar para 'initialScenario'.

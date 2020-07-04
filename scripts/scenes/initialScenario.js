@@ -5,27 +5,28 @@
  * @param {number} y é a posição Y do cenário na tela. / It is the Y position of the scenario on Canvas.
  * @param {number} width é a largura do cenário na tela. / It is the width of the scenario on Canvas.
  * @param {number} height é a altura do cenário na tela. / It is the height of the scenario on Canvas.
- * @param {font} textFont é a fonte de texto que o cenário inicial terá. / It is the text font that the initial scenario will have.
+ * @param {font} gameTextFont é a fonte de texto que o cenário inicial terá. / It is the text font that the initial scenario will have.
  */
 class InitialScenario {
-    constructor ( img, x, y, width, height, textFont ) {
+    constructor ( img, x, y, width, height, gameTextFont ) {
         this.img = img;
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-    
-        this.textFont = textFont;
+        this.gameTextFont = gameTextFont;
+
         this.text1 = 'As aventuras de ';
         this.text2 = 'Hipsta';
+        this.text3 = 'Pule (com a seta pra cima) 20 monstros\npara chegar em casa!'
         this.button;
     }
 
     createInitialScenarioButton () {
         this.button = new InitialScenarioButton(
             'Iniciar',
-            ( canvasWidth / 2 ) - 80,
-            ( canvasHeight / 4 ) * 3 - 35,
+            ( this.width / 2 ) - 80,
+            ( this.height / 4 ) * 3 - 35,
             'botao-tela-inicial'
         );
     }
@@ -35,18 +36,21 @@ class InitialScenario {
     }
 
     _showTexts () {
-        textFont( this.textFont );
-        textAlign( CENTER );
-        textSize( parseInt( canvasWidth / 9 ) );
-        text( this.text1, canvasWidth / 2, canvasHeight / 3 );
+        textFont( this.gameTextFont );
 
-        textSize( parseInt( canvasWidth / 9 ) * 1.5 );
-        text( this.text2, canvasWidth / 2, canvasHeight / 5 * 3 );
+        textSize( 32 );
+        text( this.text3, 400, 700 );
+
+        textAlign( CENTER );
+
+        textSize( parseInt( this.width / 9 ) );
+        text( this.text1, this.width / 2, this.height / 3 );
+
+        textSize( parseInt( this.width / 9 ) * 1.5 );
+        text( this.text2, this.width / 2, this.height / 5 * 3 );
     }
 
     _button () {
-        // Altera a altura do botão, mas dá pra colocar os valores através de parâmetros!!
-        // this.button.y = canvasHeight / 7 * 5;
         this.button.draw();
     }
 

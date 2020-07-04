@@ -13,19 +13,11 @@ class Scenario {
     this.x2 = posX2;
   }
   
-  // Mostra o cenário na tela. 
   show () {
-    // Carrega uma imagem. Parâmetros: / Loads a image. Parameters:
-    // 1. Imagem / Image
-    // 2. Posição X no Canvas / Position X on Canvas
-    // 3. Posição Y no Canvas / Position Y on Canvas
-    // 4. Tamanho da largura da imagem / Image width size
-    // 5. Tamanho da altura da imagem / Image width size
     image( this.img, this.x1, 0, canvasWidth, canvasHeight );
     image( this.img, this.x2, 0, canvasWidth, canvasHeight );
   }
   
-  // Faz o cenário se movimentar. / Moves the scenario.
   moves () {
     this.x1 -= this.speed;
     this.x2 -= this.speed;

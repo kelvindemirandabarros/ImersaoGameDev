@@ -1,3 +1,28 @@
+
+v.0.6.2
+
+Desenvolvimento contínuo
+- Correção de código de desenvolvimento para código de produção.
+- Adição de som de impacto.
+- Substituição de sistema de pontuação por quantidade de inimigos restantes.
+- Adição de um final feliz.
+- Sistema de gravidade alterado.
+- Adição de mini-instrução no cenário inicial.
+- Melhorias gerais.
+- Comentários desnecessários apagados.
+
+Continuous development
+- Correction of development code for production code.
+- Added impact sound.
+- Replaced score for enemies left.
+- Added a happy ending.
+- Gravity system changed.
+- Added a mini instruction on initial scenario.
+- General improvements.
+- Deleted unnecessary comments.
+
+------------------------------------------------------------------------------
+
 v.0.6.1
 
 Desenvolvimento contínuo

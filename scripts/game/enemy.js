@@ -20,7 +20,7 @@
  */
 class Enemy extends Animation {
     constructor ( img, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, speed, difLines=[] ) {
-        super( img, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, difLines );
+        super(img, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, difLines);
 
         this.speed = speed;
         this.x = x;

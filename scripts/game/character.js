@@ -2,6 +2,7 @@
  * Classe para animar a personagem. / Class to animate the character.
  * @param {image} img é a imagem do ser. / It is the being image.
  * @param {sound} jumpSound é o som do pulo da personagem. / It is the character jump sound.
+ * @param {sound} hurtSound
  * @param {number} x é a posição X do ser na tela. / It is the X position of the being on Canvas.
  * @param {number} yVariation é a variação da posição Y do ser, que pode ser o chão ou o voo. / It is the variation of the Y position of the being, which can be the ground or the flight.
  * @param {number} y é a posição Y do ser na tela. / It is the Y position of the being on Canvas.
@@ -16,24 +17,25 @@
  * @property {number} currentFrame é o índice para escolher um sprite do spritesArray. / It is the index to choose a sprite from spritesArray.
  */
 class Character extends Animation {
-  constructor ( img, jumpSound, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, difLines=[] ) {
+  constructor ( img, jumpSound, hurtSound, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, difLines=[] ) {
     super( img, x, yVariation, y, width, height, col, lin, spriteWidth, spriteHeight, difLines );
   
     this.jumpSound = jumpSound;
+    this.hurtSound = hurtSound;
 
+    this.originalX = this.x;
     this.originalY = this.y;
+    this.originalWidth = this.width;
+    this.originalHeight = this.height;
 
     this.gravity = 5;
-    // this.y = this.originalY; // Desnecessário.
     
     this.jumps = 0;
     this.jumpSpeed = 0;
     this.jumpDistance = -50;
-    this.fallSpeed = 0;
-    this.fallDistance = 0;
+    // this.fallSpeed = 0;
+    // this.fallDistance = 0;
     
-    // Objeto para identificar as ações que o usuário poderá realizar com a personagem.
-    // Não funciona desta forma.
     this.keys = {
       ArrowUp: this.jump.bind(this)
     }
@@ -42,40 +44,37 @@ class Character extends Animation {
   }
 
   jump () {
-    // console.log( 'Pulou!' );
-    // console.log( 'Personagem2:' );
-    // console.log( character );
-    // console.log( this );
     if ( this.jumps < 2 ) {
-      // this.y -= 50;
       this.jumpSpeed = this.jumpDistance;
-      // this.jumpSpeed += - ( this.gravity * 12 );
-      // this.fallDistance += this.gravity * 12;
       this.jumpSound.play();
       this.jumps++;
     }
   }
 
+  hurt () {
+    this.hurtSound.play();
+  }
+
   applyGravity () {
-    this.y += this.jumpSpeed;
-    this.jumpSpeed += this.gravity;
+    if ( this.jumpSpeed < 0 ) {
+      this.y += this.jumpSpeed;
+      this.jumpSpeed += this.gravity;
+
+    } else if ( this.y < this.originalY ) {
+      this.y += this.jumpSpeed;
+      this.jumpSpeed += this.gravity;
+
+    } else {
+      this.jumpSpeed = 0;
+    }
+    
     if ( this.y > this.originalY ) {
       this.y = this.originalY;
       this.jumps = 0;
+
+    } else if ( this.y === this.originalY ) {
+      this.jumps = 0;
     }
-
-    // // Aplicar novo código para a gravidade:
-    // if ( this.jumpSpeed < 0 ) {
-    //   // jumpSpeed é negativo!
-    //   this.y += this.jumpSpeed;
-    //   this.jumpSpeed += this.gravity;
-    // } else if ( this.fallDistance > 0 ) {
-    //   // fallDistance é positivo!
-
-    //   // Falta terminar:
-    //   this.y += this.jumpSpeed;
-    //   this.jumpSpeed += this.gravity;
-    // }
   }
 
   makeInvulnerable () {

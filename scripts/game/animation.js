@@ -35,12 +35,6 @@ class Animation {
             for (let y = 0; y < lin; y++) { // Linhas
                 if ( difLines.length !== 0 ) {
                     found = difLines.findIndex( line => line[0] === y + 1 );
-                    // Significa que a linha não tem a quantidade padrão de sprites.
-                    // if ( found !== -1 ) {
-                    //     units = difLines[ found ][1]; 
-                    // } else {
-                    //     units = col;
-                    // }
                     units = ( found !== -1 ) ? difLines[ found ][1] : col; 
                 } else {
                     units = col;
@@ -56,28 +50,11 @@ class Animation {
         this.currentFrame = 0;
     }
 
-    // Exibe a imagem da personagem:
     show () {
-        // Carrega uma imagem. Parâmetros: 
-        // 1. Imagem,
-        // 2. posicionar imagem no Canvas no eixo X,
-        // 3. e no eixo Y,
-        // 4. a imagem com largura X,
-        // 5. e altura Y,
-        // Para sprites:
-        // 6. pegar a parte da imagem que começa na largura X,
-        // 7. e altura de Y,
-        // 8. do sprit a largura X,
-        // 9. e a altura Y.
-        image( this.img,
-                this.x,
-                this.y,
-                this.width,
-                this.height,
+        image( this.img, this.x, this.y, this.width, this.height,
                 this.spritesArray[ this.currentFrame ][0],
                 this.spritesArray[ this.currentFrame ][1],
-                this.spriteWidth,
-                this.spriteHeight );
+                this.spriteWidth, this.spriteHeight );
 
         this.animate();
     }
